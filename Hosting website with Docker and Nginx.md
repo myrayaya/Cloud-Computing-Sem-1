@@ -48,4 +48,55 @@ docker run --name docker-nginx -p 80:80 nginx
 docker stop <container id>
 ```
 
-- Use the following command to reveal if the docker 
+- Use the following command to reveal if the docker has exited:
+
+```
+docker ps -a
+```
+
+- Use the following command to check the container's ID:
+
+```
+docker run --name docker-nginx -p 80:80 -d nginx
+```
+
+- Use the following command to get new information about container:
+
+```
+docker ps
+```
+
+- Use the following command to stop the container:
+
+```
+docker stop docker-nginx
+```
+
+- Remove the default Nginx page and create new custom html file using following commands:
+
+```
+docker rm docker-nginx
+```
+```
+mkdir -p ~/docker-nginx/html
+```
+
+- Navigate to the file created:
+
+```
+cd ~/docker-nginx/html
+```
+
+- Now, create an ''index.html'' and write an HTML code on ''vim'' code editor:
+
+```
+vi index.html
+```
+
+- Write the code and save the file, then connect the file to the instance:
+
+```
+docker run --name docker-nginx -p 80:80 -d -v ~/docker-nginx/html:/user/share/nginx/html nginx
+```
+
+### Now check the linksting-website-using-Docker-and Nginx.md
